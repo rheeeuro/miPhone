@@ -10,7 +10,6 @@ import {
 
 const phoneRouter = express.Router();
 
-phoneRouter.get(routes.phones, phones);
 phoneRouter.get(routes.upload, upload);
 phoneRouter.get(routes.phoneDetail, phoneDetail);
 phoneRouter.get(routes.editPhone, editPhone);
