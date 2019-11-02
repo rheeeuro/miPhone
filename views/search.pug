@@ -3,3 +3,10 @@ extends layouts/main
 block content
     .search__header
         h3 '#{searchingBy}'의 검색결과
+    .search__phones
+        each item in phones
+            +phoneBlock({
+                name:item.name,
+                image:item.image,
+                company:item.company
+            }) 
