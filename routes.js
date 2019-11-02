@@ -27,12 +27,24 @@ const routes = {
   logout: LOGOUT,
   search: SEARCH,
   users: USERS,
-  userDetail: USER_DETAIL,
+  userDetail: id => {
+    if (id) {
+      return `/users/${id}`;
+    } else {
+      return USER_DETAIL;
+    }
+  },
   editProfile: EDIT_PROFILE,
   changePassword: CHANGE_PASSWORD,
   phones: PHONES,
   upload: UPLOAD,
-  phoneDetail: PHONE_DETAIL,
+  phoneDetail: id => {
+    if (id) {
+      return `/phones/${id}`;
+    } else {
+      return PHONE_DETAIL;
+    }
+  },
   editPhone: EDIT_PHONE,
   deletePhone: DELETE_PHONE
 };
