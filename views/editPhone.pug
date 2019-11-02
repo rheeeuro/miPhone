@@ -1,4 +1,16 @@
 extends layouts/main
 
 block content
-    p Edit Phone 
+    .form-container
+        form(action=`/phones${routes.editPhone}`, method="post")
+            input(type="text", placeholder="제품명", name="name")
+            input(type="text", placeholder="제품명", name="model")
+            input(type="text", placeholder="제조사", name="company")
+            input(type="text", placeholder="출시일", name="releaseDate")
+            input(type="text", placeholder="출시가격", name="releasePrice")
+            input(type="text", placeholder="출시OS", name="releaseOS")
+
+            input(type="text", placeholder="제품명", name="name")
+            textarea(name="description", placeholder="설명")
+            input(type="submit", value="휴대폰 정보 수정")
+        a.form-container__link.form-container__link--delete(href=`/phones${routes.deleteVideo}`) 휴대폰 정보 삭제

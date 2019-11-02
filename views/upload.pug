@@ -1,4 +1,10 @@
 extends layouts/main
 
 block content
-    p Upload 
+    .form-container
+        form(action=`/phones${routes.upload}`, method="post")
+            label(for="file") 휴대폰
+            input(type="file", id="file", name="file")
+            input(type="text", placeholder="제품명", name="title")
+            textarea(name="description", placeholder="설명")
+            input(type="submit", value="휴대폰 정보 업로드")
