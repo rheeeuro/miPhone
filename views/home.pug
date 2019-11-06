@@ -5,7 +5,8 @@ block content
     .phones
         each item in phones
             +phoneBlock({
+                id:item.id,
                 name:item.name,
-                image:item.image,
+                image:item.imageUrl,
                 company:item.company
             }) 
