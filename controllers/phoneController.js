@@ -69,7 +69,7 @@ export const postUpload = async (req, res) => {
     releasePrice,
     releaseOS,
     specification: {
-      apappearance: {
+      appearance: {
         material,
         WxHxD: { w: WxHxD_W, h: WxHxD_H, d: WxHxD_D },
         weight
@@ -90,8 +90,17 @@ export const postUpload = async (req, res) => {
   res.redirect(routes.phoneDetail(newPhone.id));
 };
 
-export const phoneDetail = (req, res) =>
-  res.render("phoneDetail", { pageTitle: "휴대폰 정보" });
+export const phoneDetail = async (req, res) => {
+  const {
+    params: { id }
+  } = req;
+  try {
+    const phone = await Phone.findById(id);
+    res.render("phoneDetail", { pageTitle: "휴대폰 정보", phone });
+  } catch (error) {
+    res.redirect(routes.home);
+  }
+};
 
 export const editPhone = (req, res) =>
   res.render("editPhone", { pageTitle: "휴대폰 정보 수정" });
