@@ -2,15 +2,57 @@ extends layouts/main
 
 block content
     .form-container
-        form(action=`/phones${routes.editPhone}`, method="post")
-            input(type="text", placeholder="제품명", name="name")
-            input(type="text", placeholder="제품명", name="model")
-            input(type="text", placeholder="제조사", name="company")
-            input(type="text", placeholder="출시일", name="releaseDate")
-            input(type="text", placeholder="출시가격", name="releasePrice")
-            input(type="text", placeholder="출시OS", name="releaseOS")
-
-            input(type="text", placeholder="제품명", name="name")
-            textarea(name="description", placeholder="설명")
+        form(action=routes.editPhone(phone.id), method="post")
+            label(for="file") 휴대폰
+            br
+            |기본
+            br
+            input(type="month", placeholder="출시일", name="releaseDate" value=phone.releaseDate)
+            input(type="number", placeholder="출시가격", name="releasePrice" value=phone.releasePrice)
+            input(type="text", placeholder="출시OS", name="releaseOS" value=phone.releaseOS)
+            br
+            |외형
+            br
+            input(type="text", placeholder="재질", name="material", value=phone.specification.appearance.material)
+            input(type="number", placeholder="WxHxD (W)", name="WxHxD_W", step=0.1, value=phone.specification.appearance.WxHxD.w.toString())
+            input(type="number", placeholder="WxHxD (H)", name="WxHxD_H", step=0.1, value=phone.specification.appearance.WxHxD.h.toString())
+            input(type="number", placeholder="WxHxD (D)", name="WxHxD_D", step=0.1, value=phone.specification.appearance.WxHxD.d.toString())
+            input(type="number", placeholder="무게", name="weight", step=0.1, value=phone.specification.appearance.weight)
+            br
+            |디스플레이
+            br
+            input(type="number", placeholder="화면사이즈", name="size", step=0.1, value=phone.specification.display.size.toString())
+            input(type="number", placeholder="해상도 (W)", name="resolution_W", value=phone.specification.display.resolution.w)
+            input(type="number", placeholder="해상도 (H)", name="resolution_H", value=phone.specification.display.resolution.h)
+            input(type="number", placeholder="ppi", name="ppi", value=phone.specification.display.ppi)
+            input(type="text", placeholder="디스플레이 타입", name="Dtype", value=phone.specification.display.Dtype)
+            input(type="number", placeholder="화면 너비", name="Dwidth", step=0.01, value=phone.specification.display.Dwidth.toString())
+            input(type="number", placeholder="화면 높이", name="Dheight", step=0.01, value=phone.specification.display.Dheight.toString())
+            br
+            |성능
+            br
+            input(type="text", placeholder="성능 AP", name="AP", value=phone.specification.performance.AP)
+            input(type="text", placeholder="CPU", name="CPU", value=phone.specification.performance.CPU)
+            input(type="number", placeholder="코어 수", name="core", value=phone.specification.performance.core)
+            input(type="number", placeholder="CPU 쿨럭", name="CPUClock", value=phone.specification.performance.CPUClock)
+            input(type="text", placeholder="GPU", name="GPU", value=phone.specification.performance.GPU)
+            input(type="number", placeholder="RAM", name="RAM", value=phone.specification.performance.RAM)
+            input(type="number", placeholder="메모리", name="memory", value=phone.specification.performance.memory)
+            br
+            |카메라
+            br
+            input(type="text", placeholder="카메라 센서", name="sensor", value=phone.specification.camera.sensor)
+            input(type="text", placeholder="조리개", name="aperture", value=phone.specification.camera.aperture)
+            input(type="text", placeholder="후레시", name="flash", value=phone.specification.camera.flash)
+            input(type="number", placeholder="프레임", name="videoFrame", value=phone.specification.camera.videoFrame)
+            br
+            |배터리
+            br
+            input(type="number", placeholder="배터리 mAH", name="mAH", value=phone.specification.battery.mAH)
+            input(type="text", placeholder="배터리 타입", name="Btype", value=phone.specification.battery.Btype)
+            input(type="number", placeholder="무선충전 지원 (1 혹은 0)", name="wireless", min=0, max=1, value=phone.specification.battery.wireless)
+        
+            br
+            br
             input(type="submit", value="휴대폰 정보 수정")
-        a.form-container__link.form-container__link--delete(href=`/phones${routes.deleteVideo}`) 휴대폰 정보 삭제
+        a.form-container__link.form-container__link--delete(href=`/phones${routes.deletePhone}`) 정보 삭제

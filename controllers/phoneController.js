@@ -102,8 +102,93 @@ export const phoneDetail = async (req, res) => {
   }
 };
 
-export const editPhone = (req, res) =>
-  res.render("editPhone", { pageTitle: "휴대폰 정보 수정" });
+export const getEditPhone = async (req, res) => {
+  const {
+    params: { id }
+  } = req;
+  try {
+    const phone = await Phone.findById(id);
+    res.render("editPhone", { pageTitle: `${phone.name} 정보 수정`, phone });
+  } catch (error) {
+    res.redirect(routes.home);
+  }
+};
+
+export const postEditPhone = async (req, res) => {
+  const {
+    params: { id },
+    body: {
+      imageUrl,
+      name,
+      model,
+      company,
+      releaseDate,
+      releasePrice,
+      releaseOS,
+      material,
+      WxHxD_W,
+      WxHxD_H,
+      WxHxD_D,
+      weight,
+      size,
+      resolution_W,
+      resolution_H,
+      ppi,
+      Dtype,
+      Dwidth,
+      Dheight,
+      AP,
+      CPU,
+      core,
+      CPUClock,
+      GPU,
+      RAM,
+      memory,
+      sensor,
+      aperture,
+      flash,
+      videoFrame,
+      mAH,
+      Btype,
+      wireless
+    }
+  } = req;
+  try {
+    await Phone.findOneAndUpdate(
+      { id },
+      {
+        imageUrl,
+        name,
+        model,
+        company,
+        releaseDate,
+        releasePrice,
+        releaseOS,
+        specification: {
+          appearance: {
+            material,
+            WxHxD: { w: WxHxD_W, h: WxHxD_H, d: WxHxD_D },
+            weight
+          },
+          display: {
+            size,
+            resolution: { w: resolution_W, h: resolution_H },
+            ppi,
+            Dtype,
+            Dwidth,
+            Dheight
+          },
+          performance: { AP, CPU, core, CPUClock, GPU, RAM, memory },
+          camera: { sensor, aperture, flash, videoFrame },
+          battery: { mAH, Btype, wireless }
+        }
+      }
+    );
+    res.redirect(routes.phoneDetail(id));
+  } catch (error) {
+    res.redirect(routes.home);
+  }
+};
 
 export const deletePhone = (req, res) =>
   res.render("deletePhone", { pageTitle: "휴대폰 정보 삭제" });

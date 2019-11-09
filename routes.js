@@ -45,7 +45,13 @@ const routes = {
       return PHONE_DETAIL;
     }
   },
-  editPhone: EDIT_PHONE,
+  editPhone: id => {
+    if (id) {
+      return `/phones/${id}/edit`;
+    } else {
+      return EDIT_PHONE;
+    }
+  },
   deletePhone: DELETE_PHONE
 };
 
