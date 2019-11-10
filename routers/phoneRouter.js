@@ -23,6 +23,6 @@ phoneRouter.get(routes.editPhone(), getEditPhone);
 phoneRouter.post(routes.editPhone(), postEditPhone);
 
 // Delete Phone
-phoneRouter.get(routes.deletePhone, deletePhone);
+phoneRouter.get(routes.deletePhone(), deletePhone);
 
 export default phoneRouter;

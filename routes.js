@@ -52,7 +52,13 @@ const routes = {
       return EDIT_PHONE;
     }
   },
-  deletePhone: DELETE_PHONE
+  deletePhone: id => {
+    if (id) {
+      return `/phones/${id}/delete`;
+    } else {
+      return DELETE_PHONE;
+    }
+  }
 };
 
 export default routes;

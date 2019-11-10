@@ -1,9 +1,11 @@
 import routes from "../routes";
 import Phone from "../models/Phone";
 
+// Home
+
 export const home = async (req, res) => {
   try {
-    const phones = await Phone.find({});
+    const phones = await Phone.find({}).sort({ _id: -1 });
     res.render("home", { pageTitle: "홈", phones });
   } catch (error) {
     console.log(error);
@@ -11,12 +13,24 @@ export const home = async (req, res) => {
   }
 };
 
-export const search = (req, res) => {
+// Search
+
+export const search = async (req, res) => {
   const {
     query: { term: searchingBy }
   } = req;
+  let phones = [];
+  try {
+    phones = await Phone.find({
+      name: { $regex: searchingBy, $options: "i" }
+    });
+  } catch (error) {
+    console.log(error);
+  }
   res.render("search", { pageTitle: "검색", searchingBy, phones });
 };
+
+// Upload
 
 export const getUpload = (req, res) =>
   res.render("upload", { pageTitle: "정보 업로드" });
@@ -90,17 +104,21 @@ export const postUpload = async (req, res) => {
   res.redirect(routes.phoneDetail(newPhone.id));
 };
 
+// Phone Detail
+
 export const phoneDetail = async (req, res) => {
   const {
     params: { id }
   } = req;
   try {
     const phone = await Phone.findById(id);
-    res.render("phoneDetail", { pageTitle: "휴대폰 정보", phone });
+    res.render("phoneDetail", { pageTitle: `${phone.name} 정보`, phone });
   } catch (error) {
     res.redirect(routes.home);
   }
 };
+
+// Edit Phone
 
 export const getEditPhone = async (req, res) => {
   const {
@@ -155,7 +173,7 @@ export const postEditPhone = async (req, res) => {
   } = req;
   try {
     await Phone.findOneAndUpdate(
-      { id },
+      { _id: id },
       {
         imageUrl,
         name,
@@ -190,5 +208,16 @@ export const postEditPhone = async (req, res) => {
   }
 };
 
-export const deletePhone = (req, res) =>
-  res.render("deletePhone", { pageTitle: "휴대폰 정보 삭제" });
+// Delete Phone
+
+export const deletePhone = async (req, res) => {
+  const {
+    params: { id }
+  } = req;
+  try {
+    await Phone.findOneAndRemove({ _id: id });
+  } catch (error) {
+    console.log(error);
+  }
+  res.redirect(routes.home);
+};

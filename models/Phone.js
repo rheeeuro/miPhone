@@ -15,7 +15,7 @@ const PhoneSchema = new mongoose.Schema({
   },
   company: {
     type: String,
-    required: "Name is required"
+    required: "Company is required"
   },
   releaseDate: Date,
   releasePrice: Number,
