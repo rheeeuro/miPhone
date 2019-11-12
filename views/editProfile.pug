@@ -3,8 +3,6 @@ extends layouts/main
 block content
     .form-container
         form(action=`/users${routes.editProfile}`, method="post")
-            label(for="avatar") 프로필 사진
-            input(type="file", id="avatar", name="avatar")
             input(type="text", placeholder="이름", name="name")
             input(type="email", placeholder="이메일", name="email")
             input(type="submit", value="수정")

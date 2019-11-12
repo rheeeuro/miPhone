@@ -55,4 +55,5 @@ block content
             br
             br
             input(type="submit", value="휴대폰 정보 수정")
-        a.form-container__link.form-container__link--delete(href=routes.deletePhone(phone.id)) 정보 삭제
+        a.form-container__link(href=routes.deletePhone(phone.id))
+            button.delete 정보 삭제

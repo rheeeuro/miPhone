@@ -12,6 +12,6 @@ Comparing specification of smartphones using database (DB class team project)
 - [x] Edit Profile
 - [x] Change Password
 - [x] Upload
-- [ ] Phone Detail
+- [x] Phone Detail
 - [x] Edit Phone
 - [ ] Comparing
