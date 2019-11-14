@@ -20,6 +20,11 @@ const PHONE_DETAIL = "/:id";
 const EDIT_PHONE = "/:id/edit";
 const DELETE_PHONE = "/:id/delete";
 
+// Github
+
+const GITHUB = "/auth/github";
+const GITHUB_CALLBACK = "/auth/github/callback";
+
 const routes = {
   home: HOME,
   join: JOIN,
@@ -58,7 +63,9 @@ const routes = {
     } else {
       return DELETE_PHONE;
     }
-  }
+  },
+  gitHub: GITHUB,
+  githubCallback: GITHUB_CALLBACK
 };
 
 export default routes;
