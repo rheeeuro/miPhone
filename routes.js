@@ -26,6 +26,11 @@ const DELETE_PHONE = "/:id/delete";
 const GITHUB = "/auth/github";
 const GITHUB_CALLBACK = "/auth/github/callback";
 
+// Naver
+
+const NAVER = "/auth/naver";
+const NAVER_CALLBACK = "/auth/naver/callback";
+
 const routes = {
   home: HOME,
   join: JOIN,
@@ -67,6 +72,8 @@ const routes = {
   },
   gitHub: GITHUB,
   githubCallback: GITHUB_CALLBACK,
+  naver: NAVER,
+  naverCallback: NAVER_CALLBACK,
   me: ME
 };
 
