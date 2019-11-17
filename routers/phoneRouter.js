@@ -6,7 +6,9 @@ import {
   phoneDetail,
   deletePhone,
   getEditPhone,
-  postEditPhone
+  postEditPhone,
+  addCompare,
+  deleteCompare
 } from "../controllers/phoneController";
 import { onlyPrivate } from "../middlewares";
 
@@ -25,5 +27,9 @@ phoneRouter.post(routes.editPhone(), onlyPrivate, postEditPhone);
 
 // Delete Phone
 phoneRouter.get(routes.deletePhone(), onlyPrivate, deletePhone);
+
+// Compare
+phoneRouter.get(routes.addCompare(), onlyPrivate, addCompare);
+phoneRouter.get(routes.deleteCompare(), onlyPrivate, deleteCompare);
 
 export default phoneRouter;

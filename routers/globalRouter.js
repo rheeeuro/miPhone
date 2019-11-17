@@ -12,7 +12,8 @@ import {
   postGithubLogIn,
   getMe,
   naverLogin,
-  postnaverLogin
+  postnaverLogin,
+  compare
 } from "../controllers/userController";
 import { onlyPublic, onlyPrivate } from "../middlewares";
 
@@ -36,7 +37,7 @@ globalRouter.get(
   postGithubLogIn
 );
 
-globalRouter.get(routes.me, getMe);
+globalRouter.get(routes.me, onlyPrivate, getMe);
 
 globalRouter.get(routes.naver, naverLogin);
 globalRouter.get(
@@ -44,5 +45,7 @@ globalRouter.get(
   passport.authenticate("naver", { failureRedirect: "/login" }),
   postnaverLogin
 );
+
+globalRouter.get(routes.compare, compare);
 
 export default globalRouter;

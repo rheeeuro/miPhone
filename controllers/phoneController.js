@@ -1,5 +1,7 @@
+import mongoose from "mongoose";
 import routes from "../routes";
 import Phone from "../models/Phone";
+import User from "../models/User";
 
 // Home
 
@@ -220,4 +222,40 @@ export const deletePhone = async (req, res) => {
     console.log(error);
   }
   res.redirect(routes.home);
+};
+
+// Compare
+
+export const addCompare = async (req, res) => {
+  const {
+    params: { id }
+  } = req;
+  try {
+    const user = await User.findById(req.user.id).populate("compare");
+    const mappingCompare = user.compare.map(item => item.id);
+    if (user.compare.length < 3 && !mappingCompare.includes(id)) {
+      user.compare.push(id);
+      console.log(user.compare.length);
+      user.save();
+    } else {
+      console.log("at most 3");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+  res.redirect(routes.compare);
+};
+
+export const deleteCompare = async (req, res) => {
+  const {
+    params: { id }
+  } = req;
+  try {
+    const user = await User.findById(req.user).populate("compare");
+    user.compare.splice(user.compare.indexof(id), 1);
+    user.save();
+  } catch (error) {
+    console.log(error);
+  }
+  res.redirect(routes.compare);
 };

@@ -12,6 +12,7 @@ const USER_DETAIL = "/:id";
 const EDIT_PROFILE = "/edit-profile";
 const CHANGE_PASSWORD = "/change-password";
 const ME = "/me";
+const COMPARE = "/compare";
 
 // Phone
 
@@ -20,6 +21,8 @@ const UPLOAD = "/upload";
 const PHONE_DETAIL = "/:id";
 const EDIT_PHONE = "/:id/edit";
 const DELETE_PHONE = "/:id/delete";
+const ADD_COMPARE = "/:id/add-compare";
+const DELETE_COMPARE = "/:id/delete-compare";
 
 // Github
 
@@ -74,7 +77,22 @@ const routes = {
   githubCallback: GITHUB_CALLBACK,
   naver: NAVER,
   naverCallback: NAVER_CALLBACK,
-  me: ME
+  me: ME,
+  compare: COMPARE,
+  addCompare: id => {
+    if (id) {
+      return `/phones/${id}/add-compare`;
+    } else {
+      return ADD_COMPARE;
+    }
+  },
+  deleteCompare: id => {
+    if (id) {
+      return `/phones/${id}/delete-compare`;
+    } else {
+      return DELETE_COMPARE;
+    }
+  }
 };
 
 export default routes;

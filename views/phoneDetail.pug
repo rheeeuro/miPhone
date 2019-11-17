@@ -189,7 +189,9 @@ block content
                             span|지원
                         else
                             span|지원 안함
-    a(href=routes.editPhone(phone.id)) 정보 수정
+    if(loggedUser)
+        a(href=routes.editPhone(phone.id)) 정보 수정
+        a(href=routes.addCompare(phone.id)) 비교 리스트에 추가
     .phone__comments
         span.phone__comment-number=`${phone.comments.length} 개의 댓글`
 

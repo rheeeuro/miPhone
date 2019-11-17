@@ -123,7 +123,8 @@ export const userDetail = async (req, res) => {
     params: { id }
   } = req;
   try {
-    const user = await User.findById(id);
+    const user = await User.findById(id).populate("phones");
+    console.log(user);
     res.render("userDetail", { pageTitle: `${user.name} 정보`, user });
   } catch (error) {
     res.redirect(routes.home);
@@ -171,4 +172,11 @@ export const postChangePassword = async (req, res) => {
     res.status(400);
     res.redirect(`/users/${routes.changePassword}`);
   }
+};
+
+// Compare
+
+export const compare = async (req, res) => {
+  const user = await User.findById(req.user.id).populate("compare");
+  res.render("compare", { pageTitle: "스펙 비교", compare: user.compare });
 };

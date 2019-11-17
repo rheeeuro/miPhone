@@ -1,0 +1,74 @@
+extends layouts/main
+include mixins/imgBlock
+include mixins/basicBlock
+include mixins/appearanceBlock
+include mixins/displayBlock
+include mixins/specBlock
+include mixins/cameraBlock
+include mixins/batteryBlock
+
+block content
+    table(border=1)
+        tr
+            td|스펙
+        tr
+            td|이미지
+        tr
+            each item in compare
+                td
+                    +imgBlock({
+                        imageUrl:item.imageUrl,
+                    })
+        tr
+            td|기본정보
+        tr
+            each item in compare
+                td
+                    +basicBlock({
+                        name: item.name,
+                        model: item.model,
+                        company: item.company,
+                        releaseDate: item.releaseDate,
+                        releasePrice: item.releasePrice,
+                        releaseOS: item.releaseOS
+                    })
+        tr
+            td|외형
+        tr
+            each item in compare
+                td
+                    +appearanceBlock({
+                        specification: item.specification
+                    })
+        tr
+            td|디스플레이
+        tr
+            each item in compare
+                td
+                    +displayBlock({
+                        specification: item.specification
+                    })
+        tr
+            td|성능
+        tr
+            each item in compare
+                td
+                    +specBlock({
+                        specification: item.specification
+                    })
+        tr
+            td|카메라
+        tr
+            each item in compare
+                td
+                    +cameraBlock({
+                        specification: item.specification
+                    })
+        tr
+            td|배터리
+        tr
+            each item in compare
+                td
+                    +batteryBlock({
+                        specification: item.specification
+                    })
