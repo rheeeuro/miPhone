@@ -130,8 +130,45 @@ export const userDetail = async (req, res) => {
   }
 };
 
-export const editProfile = (req, res) =>
+// Edit Profile
+
+export const getEditProfile = (req, res) =>
   res.render("editProfile", { pageTitle: "프로필 편집" });
 
-export const changePassword = (req, res) =>
+export const postEditProfile = async (req, res) => {
+  const {
+    body: { name, email }
+  } = req;
+  try {
+    await User.findByIdAndUpdate(req.user.id, {
+      name,
+      email
+    });
+    res.redirect(routes.me);
+  } catch (error) {
+    res.redirect(routes.editProfile);
+  }
+};
+
+// Change Password
+
+export const getChangePassword = (req, res) =>
   res.render("changePassword", { pageTitle: "비밀번호 변경" });
+
+export const postChangePassword = async (req, res) => {
+  const {
+    body: { oldPassword, newPassword, newPassword1 }
+  } = req;
+  try {
+    if (newPassword !== newPassword1) {
+      res.status(400);
+      res.redirect(`/users/${routes.changePassword}`);
+      return;
+    }
+    await req.user.changePassword(oldPassword, newPassword);
+    res.redirect(routes.me);
+  } catch (error) {
+    res.status(400);
+    res.redirect(`/users/${routes.changePassword}`);
+  }
+};
