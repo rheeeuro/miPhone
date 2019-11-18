@@ -1,7 +1,8 @@
-import mongoose from "mongoose";
+/* eslint-disable camelcase */
 import routes from "../routes";
 import Phone from "../models/Phone";
 import User from "../models/User";
+import Comment from "../models/Comment";
 
 // Home
 
@@ -113,7 +114,7 @@ export const phoneDetail = async (req, res) => {
     params: { id }
   } = req;
   try {
-    const phone = await Phone.findById(id);
+    const phone = await Phone.findById(id).populate("comments");
     res.render("phoneDetail", { pageTitle: `${phone.name} 정보`, phone });
   } catch (error) {
     res.redirect(routes.home);
@@ -251,11 +252,34 @@ export const deleteCompare = async (req, res) => {
     params: { id }
   } = req;
   try {
-    const user = await User.findById(req.user).populate("compare");
-    user.compare.splice(user.compare.indexof(id), 1);
+    const user = await User.findById(req.user.id);
+    user.compare.splice(user.compare.indexOf(id), 1);
     user.save();
   } catch (error) {
     console.log(error);
   }
   res.redirect(routes.compare);
+};
+
+// Add Comment
+
+export const postAddComment = async (req, res) => {
+  const {
+    params: { id },
+    body: { comment },
+    user
+  } = req;
+  try {
+    const phone = await Phone.findById(id);
+    const newComment = await Comment.create({
+      text: comment,
+      creator: user.id
+    });
+    phone.comments.push(newComment.id);
+    phone.save();
+  } catch (error) {
+    res.status(400);
+  } finally {
+    res.end();
+  }
 };

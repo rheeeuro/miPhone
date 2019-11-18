@@ -193,5 +193,12 @@ block content
         a(href=routes.editPhone(phone.id)) 정보 수정
         a(href=routes.addCompare(phone.id)) 비교 리스트에 추가
     .phone__comments
-        span.phone__comment-number=`${phone.comments.length} 개의 댓글`
+        span.phone__comment-number#jsCommentNumber=phone.comments.length
+        | 개의 댓글
+        form.add__comment#jsAddComment
+            input(type="text", placeholder="댓글을 입력하세요")
+        ul.phone__comments-list#jsCommentList
+            each comment in phone.comments.reverse()
+                li
+                    span=comment.text 
 

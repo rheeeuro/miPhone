@@ -34,6 +34,11 @@ const GITHUB_CALLBACK = "/auth/github/callback";
 const NAVER = "/auth/naver";
 const NAVER_CALLBACK = "/auth/naver/callback";
 
+// API
+
+const API = "/api";
+const ADD_COMMENT = "/:id/comment";
+
 const routes = {
   home: HOME,
   join: JOIN,
@@ -92,7 +97,9 @@ const routes = {
     } else {
       return DELETE_COMPARE;
     }
-  }
+  },
+  api: API,
+  addComment: ADD_COMMENT
 };
 
 export default routes;

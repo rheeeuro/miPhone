@@ -12,7 +12,7 @@ import routes from "./routes";
 import userRouter from "./routers/userRouter";
 import phoneRouter from "./routers/phoneRouter";
 import globalRouter from "./routers/globalRouter";
-
+import apiRouter from "./routers/apiRouter";
 import "./passport";
 
 const app = express();
@@ -43,5 +43,6 @@ app.use(localsMiddleware);
 app.use(routes.home, globalRouter);
 app.use(routes.users, userRouter);
 app.use(routes.phones, phoneRouter);
+app.use(routes.api, apiRouter);
 
 export default app;
