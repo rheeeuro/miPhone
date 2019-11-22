@@ -4,9 +4,18 @@
   "description": "Comparing specification of smartphones using database (DB class team project)",
   "main": "index.js",
   "scripts": {
-    "dev:server": "nodemon --exec babel-node init.js --delay 2 --ignore '.scss' --ignore 'static' ",
-    "dev:assets": "cross-env WEBPACK_ENV=development webpack -w",
-    "build:assets": "cross-env WEBPACK_ENV=production webpack"
+    "dev:server": "nodemon --exec babel-node src/init.js --delay 2 --ignore '.scss' --ignore 'static' ",
+    "dev:assets": "cd src && cross-env WEBPACK_ENV=development webpack -w",
+    "build:assets": "cd src && cross-env WEBPACK_ENV=production webpack",
+    "build:server": "babel src --out-dir build --ignore 'src/assets','src/static','src/webpack.config.js'",
+    "copyAll": "shx cp -r src/static build/static && shx cp -r src/views build/views",
+    "build": "npm run build:server && npm run build:assets && npm run copyAll",
+    "buildWindow": "npm run build:server && npm run build:assets && npm run copyAll",
+    "prebuildWindow": "rd /s /q build",
+    "heroku-prebuild": "rm -rf build",
+    "tunnel": "lt --port 4000",
+    "start": "corss-env PRODUCTION=true node build/init.js",
+    "prestart": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -19,7 +28,8 @@
   },
   "homepage": "https://github.com/rheeeuro/miPhone#readme",
   "dependencies": {
-    "@babel/core": "^7.6.4",
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
     "@babel/node": "^7.6.3",
     "@babel/polyfill": "^7.7.0",
     "@babel/preset-env": "^7.6.3",
@@ -48,6 +58,7 @@
     "postcss-loader": "^3.0.0",
     "pug": "^2.0.4",
     "sass-loader": "^8.0.0",
+    "shx": "^0.3.2",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"
   },

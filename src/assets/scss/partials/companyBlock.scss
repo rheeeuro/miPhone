@@ -1,0 +1,25 @@
+.companyBlock {
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: center;
+  text-overflow: ellipsis;
+
+  .companyBlock__name {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 5px;
+    margin-bottom: 40px;
+    width: 100%;
+    justify-self: center;
+  }
+  .companyBlock__phones {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+    grid-gap: 30px;
+    white-space: nowrap;
+  }
+}

@@ -1,0 +1,13 @@
+extends layouts/main
+include mixins/companyBlock
+
+block content
+    .home-phones
+        each company in companies     
+            +companyBlock({
+                id: company.id,
+                name: company.name,
+                homepage: company.homepage,
+                imageUrl: company.imageUrl,
+                phones: company.phones
+            })

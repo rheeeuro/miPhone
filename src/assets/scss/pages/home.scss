@@ -1,0 +1,5 @@
+.home-phones {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(330px, 1fr));
+  grid-gap: 50px;
+}

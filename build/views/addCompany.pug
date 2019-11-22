@@ -1,0 +1,10 @@
+extends layouts/main
+
+block content
+    .form-container
+        form(action=`/companies${routes.addCompany}`, method="post")
+            label(for="file") 제조사
+            input(type="text", placeholder="제조사 명", name="name", required=true)
+            input(type="text", placeholder="홈페이지 URL", name="homepage", required=true)
+            input(type="text", placeholder="이미지 URL", name="imageUrl", required=true)
+            input(type="submit", value="제조사 등록")
