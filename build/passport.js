@@ -19,13 +19,13 @@ _passport["default"].use(_User["default"].createStrategy());
 _passport["default"].use(new _passportGithub["default"]({
   clientID: process.env.GITHUB_ID,
   clientSecret: process.env.GITHUB_SECRET,
-  callbackURL: "http://localhost:4000".concat(_routes["default"].githubCallback)
+  callbackURL: process.env.PRODUCTION ? "https://miphone.herokuapp.com".concat(_routes["default"].githubCallback) : "http://localhost:4000".concat(_routes["default"].githubCallback)
 }, _userController.githubLoginCallback));
 
 _passport["default"].use(new _passportNaver["default"]({
   clientID: process.env.NAVER_ID,
   clientSecret: process.env.NAVER_SECRET,
-  callbackURL: "http://localhost:4000".concat(_routes["default"].naverCallback)
+  callbackURL: process.env.PRODUCTION ? "https://miphone.herokuapp.com".concat(_routes["default"].naverCallback) : "http://localhost:4000".concat(_routes["default"].naverCallback)
 }, _userController.naverLoginCallback));
 
 _passport["default"].serializeUser(_User["default"].serializeUser());

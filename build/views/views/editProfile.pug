@@ -1,0 +1,8 @@
+extends layouts/main
+
+block content
+    .form-container
+        form(action=`/users${routes.editProfile}`, method="post")
+            input(type="text", placeholder="이름", name="name", value=loggedUser.name)
+            input(type="email", placeholder="이메일", name="email", value=loggedUser.email)
+            input(type="submit", value="수정")

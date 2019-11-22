@@ -1,0 +1,61 @@
+extends layouts/main
+
+block content
+    .form-container
+        form(action=`/phones${routes.upload}`, method="post")
+            label(for="file") 휴대폰
+            br
+            |기본
+            br
+            input(type="text", placeholder="이미지 URL", name="imageUrl", required=true)
+            input(type="text", placeholder="제품명", name="name", required=true)
+            input(type="text", placeholder="모델명", name="model", required=true)
+            input(type="text", placeholder="제조사", name="company", required=true)
+            input(type="month", placeholder="출시일", name="releaseDate")
+            input(type="number", placeholder="출시가격", name="releasePrice")
+            input(type="text", placeholder="출시OS", name="releaseOS")
+            br
+            |외형
+            br
+            input(type="text", placeholder="재질", name="material")
+            input(type="number", placeholder="WxHxD (W)", name="WxHxD_W" step=0.1)
+            input(type="number", placeholder="WxHxD (H)", name="WxHxD_H" step=0.1)
+            input(type="number", placeholder="WxHxD (D)", name="WxHxD_D" step=0.1)
+            input(type="number", placeholder="무게", name="weight" step=0.1)
+            br
+            |디스플레이
+            br
+            input(type="number", placeholder="화면사이즈", name="size" step=0.1)
+            input(type="number", placeholder="해상도 (W)", name="resolution_W")
+            input(type="number", placeholder="해상도 (H)", name="resolution_H")
+            input(type="number", placeholder="ppi", name="ppi")
+            input(type="text", placeholder="디스플레이 타입", name="Dtype")
+            input(type="number", placeholder="화면 너비", name="Dwidth" step=0.01)
+            input(type="number", placeholder="화면 높이", name="Dheight" step=0.01)
+            br
+            |성능
+            br
+            input(type="text", placeholder="성능 AP", name="AP")
+            input(type="text", placeholder="CPU", name="CPU")
+            input(type="number", placeholder="코어 수", name="core")
+            input(type="number", placeholder="CPU 쿨럭", name="CPUClock")
+            input(type="text", placeholder="GPU", name="GPU")
+            input(type="number", placeholder="RAM", name="RAM")
+            input(type="number", placeholder="메모리", name="memory")
+            br
+            |카메라
+            br
+            input(type="text", placeholder="카메라 센서", name="sensor")
+            input(type="text", placeholder="조리개", name="aperture")
+            input(type="text", placeholder="후레시", name="flash")
+            input(type="number", placeholder="프레임", name="videoFrame")
+            br
+            |배터리
+            br
+            input(type="number", placeholder="배터리 mAH", name="mAH")
+            input(type="text", placeholder="배터리 타입", name="Btype")
+            input(type="number", placeholder="무선충전 지원 (1 혹은 0)", name="wireless" min=0 max=1)
+        
+            br
+            br
+            input(type="submit", value="휴대폰 정보 업로드")

@@ -1,0 +1,24 @@
+mixin basicBlock(phone = {})
+    .basicBlock
+        table(border=1).phone__table
+            tr
+                td
+                    p.phone__name=phone.name
+            tr
+                td
+                    p.phone__model=phone.model
+            tr
+                td
+                    p.phone__company=phone.company
+            tr
+                td
+                    p.phone__releaseDate
+                            span=phone.releaseDate.getFullYear()
+                            span="-"
+                            span=phone.releaseDate.getMonth()+1
+            tr
+                td
+                    p.phone__releasePrice=phone.releasePrice
+            tr
+                td
+                    p.phone__releaseOS=phone.releaseOS

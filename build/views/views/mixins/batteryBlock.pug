@@ -1,0 +1,16 @@
+mixin batteryBlock(phone = {})
+    .batteryBlock
+        table(border=1).phone__table
+            tr
+                td
+                    p.battery__mAH=phone.specification.battery.mAH
+            tr
+                td
+                    p.battery__Btype=phone.specification.battery.Btype
+            tr
+                td
+                    p.battery__wireless
+                        if(phone.specification.battery.wireless == "1")
+                            span|지원
+                        else
+                            span|지원 안함
