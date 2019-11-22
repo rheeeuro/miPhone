@@ -17,6 +17,9 @@
   .compare__imgtr,
   .imgBlock {
     border: none;
+    img {
+      max-width: 400px;
+    }
   }
   .deleteBlock {
     .delBtn {
