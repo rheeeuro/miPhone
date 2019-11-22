@@ -39,6 +39,7 @@ const NAVER_CALLBACK = "/auth/naver/callback";
 
 const API = "/api";
 const ADD_COMMENT = "/:id/comment";
+const DELETE_COMMENT = "/:phoneId/:commentId/delete";
 
 // Company
 
@@ -56,9 +57,8 @@ const routes = {
   userDetail: id => {
     if (id) {
       return `/users/${id}`;
-    } else {
-      return USER_DETAIL;
     }
+    return USER_DETAIL;
   },
   editProfile: EDIT_PROFILE,
   changePassword: CHANGE_PASSWORD,
@@ -67,23 +67,20 @@ const routes = {
   phoneDetail: id => {
     if (id) {
       return `/phones/${id}`;
-    } else {
-      return PHONE_DETAIL;
     }
+    return PHONE_DETAIL;
   },
   editPhone: id => {
     if (id) {
       return `/phones/${id}/edit`;
-    } else {
-      return EDIT_PHONE;
     }
+    return EDIT_PHONE;
   },
   deletePhone: id => {
     if (id) {
       return `/phones/${id}/delete`;
-    } else {
-      return DELETE_PHONE;
     }
+    return DELETE_PHONE;
   },
   gitHub: GITHUB,
   githubCallback: GITHUB_CALLBACK,
@@ -94,34 +91,36 @@ const routes = {
   addCompare: id => {
     if (id) {
       return `/phones/${id}/add-compare`;
-    } else {
-      return ADD_COMPARE;
     }
+    return ADD_COMPARE;
   },
   deleteCompare: id => {
     if (id) {
       return `/phones/${id}/delete-compare`;
-    } else {
-      return DELETE_COMPARE;
     }
+    return DELETE_COMPARE;
   },
   addMy: id => {
     if (id) {
       return `/phones/${id}/add-my`;
-    } else {
-      return ADD_MY;
     }
+    return ADD_MY;
   },
   api: API,
   addComment: ADD_COMMENT,
+  deleteComment: (phoneId, commentId) => {
+    if (phoneId && commentId) {
+      return `/api/${phoneId}/${commentId}/delete`;
+    }
+    return DELETE_COMMENT;
+  },
   company: COMPANY,
   addCompany: ADD_COMPANY,
   companyDetail: id => {
     if (id) {
       return `/companies/${id}`;
-    } else {
-      return COMPANY_DETAIL;
     }
+    return COMPANY_DETAIL;
   }
 };
 

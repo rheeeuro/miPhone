@@ -6,7 +6,7 @@ block content
         img.u-avatar(src=company.imageUrl)
         a(href=company.homepage)
             p=company.name
-    .home-phones
+    .companyDetail__phones
         each item in company.phones
             +phoneBlock({
                 id:item.id,

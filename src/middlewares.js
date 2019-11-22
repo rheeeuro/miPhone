@@ -1,10 +1,8 @@
 import routes from "./routes";
 
-export const localsMiddleware = (req, res, next) => {
-  res.locals.siteName = "miPhone";
-  res.locals.routes = routes;
-  res.locals.loggedUser = req.user || null;
-  next();
+export const formatDate = date => {
+  const d = new Date(date);
+  return [d.getFullYear(), d.getMonth() + 1, d.getDate()].join(". ");
 };
 
 export const onlyPublic = (req, res, next) => {
@@ -21,4 +19,12 @@ export const onlyPrivate = (req, res, next) => {
   } else {
     res.redirect(routes.home);
   }
+};
+
+export const localsMiddleware = (req, res, next) => {
+  res.locals.siteName = "miPhone";
+  res.locals.routes = routes;
+  res.locals.loggedUser = req.user || null;
+  res.locals.formatDate = formatDate;
+  next();
 };

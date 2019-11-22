@@ -3,6 +3,12 @@ import axios from "axios";
 const addCommentForm = document.getElementById("jsAddComment");
 const commentList = document.getElementById("jsCommentList");
 const commentNumber = document.getElementById("jsCommentNumber");
+const userName = document.getElementById("username");
+
+const formatDate = date => {
+  const d = new Date(date);
+  return [d.getFullYear(), d.getMonth() + 1, d.getDate()].join(". ");
+};
 
 const increaseNumber = () => {
   commentNumber.innerHTML = parseInt(commentNumber.innerHTML, 10) + 1;
@@ -10,9 +16,23 @@ const increaseNumber = () => {
 
 const addComment = comment => {
   const li = document.createElement("li");
-  const span = document.createElement("span");
-  span.innerHTML = comment;
-  li.appendChild(span);
+
+  const commentContent = document.createElement("div");
+  commentContent.classList.add("comment-content");
+
+  const name = document.createElement("span");
+  name.innerHTML = userName.value;
+
+  const date = document.createElement("span");
+  date.innerHTML = formatDate(Date.now());
+
+  const commentText = document.createElement("p");
+  commentText.innerHTML = comment;
+  commentContent.append(name);
+  commentContent.append(date);
+  commentContent.append(commentText);
+
+  li.appendChild(commentContent);
   commentList.prepend(li);
   increaseNumber();
 };

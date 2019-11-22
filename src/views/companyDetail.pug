@@ -2,15 +2,16 @@ extends layouts/main
 include mixins/phoneBlock
 
 block content
-    .companyDetail__info
-        img.u-avatar(src=company.imageUrl)
-        a(href=company.homepage)
-            p=company.name
-    .home-phones
-        each item in company.phones
-            +phoneBlock({
-                id:item.id,
-                name:item.name,
-                imageUrl:item.imageUrl,
-                company:item.company
-            })
+    .companyDetail__container
+        .companyDetail__info
+            img.u-avatar(src=company.imageUrl)
+            a(href=company.homepage)
+                p=company.name
+        .companyDetail__phones.companyDetail__phones
+            each item in company.phones
+                +phoneBlock({
+                    id:item.id,
+                    name:item.name,
+                    imageUrl:item.imageUrl,
+                    company:item.company
+                })

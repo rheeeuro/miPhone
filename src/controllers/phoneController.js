@@ -282,7 +282,8 @@ export const postAddComment = async (req, res) => {
     const phone = await Phone.findById(id);
     const newComment = await Comment.create({
       text: comment,
-      creator: user.id
+      creator: user.id,
+      creatorName: user.name
     });
     phone.comments.push(newComment.id);
     phone.save();
@@ -291,6 +292,28 @@ export const postAddComment = async (req, res) => {
   } finally {
     res.end();
   }
+};
+
+// Delete Comment
+
+export const deleteComment = async (req, res) => {
+  const {
+    params: { phoneId, commentId }
+  } = req;
+  try {
+    const phone = await Phone.findById(phoneId);
+    const comment = await Comment.findById(commentId);
+    if (String(comment.creator) !== req.user.id) {
+      throw Error();
+    } else {
+      await Comment.findOneAndRemove({ _id: commentId });
+      phone.comments.splice(phone.comments.indexof(commentId), 1);
+      phone.save();
+    }
+  } catch (error) {
+    console.log(error);
+  }
+  res.redirect(routes.phoneDetail(phoneId));
 };
 
 // Add My

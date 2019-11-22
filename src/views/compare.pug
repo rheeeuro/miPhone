@@ -10,26 +10,51 @@ include mixins/deleteBlock
 
 block content
     if(compare.length > 0)
-        table(border=1)
+        table.compare__table(border=1)
             tr
-                td|스펙
-            tr
-                td|이미지
-            tr
+                td(colspan=compare.length+1)|스펙
+            tr.compare__title
+                td(colspan=compare.length+1)|이미지
+            tr.compare__imgtr
+                td
+                    |
                 each item in compare
-                    td
+                    td.compare__imgtr
                         +imgBlock({
                             imageUrl:item.imageUrl,
                         })
             tr
+                td
+                    |
                 each item in compare
                     td
                         +deleteBlock({
                             id: item.id
                         })
+            tr.compare__title
+                td(colspan=compare.length+1)|기본정보
             tr
-                td|기본정보
-            tr
+                td
+                    table.name__table
+                        tr
+                            td
+                                p|제품명
+                        tr
+                            td
+                                p|모델명
+                        tr
+                            td
+                                p|제조사명
+                        tr
+                            td
+                                p|출시일
+                        tr
+                            td
+                                p|출고가(원)
+                        tr
+                            td
+                                p|출시 OS
+
                 each item in compare
                     td
                         +basicBlock({
@@ -40,41 +65,120 @@ block content
                             releasePrice: item.releasePrice,
                             releaseOS: item.releaseOS
                         })
+            tr.compare__title
+                td(colspan=compare.length+1)|외형
             tr
-                td|외형
-            tr
+                td
+                    table.name__table
+                        tr
+                            td
+                                p|재질
+                        tr
+                            td
+                                p|WxHxD
+                        re
+                            td
+                                p|무게(g)
                 each item in compare
                     td
                         +appearanceBlock({
                             specification: item.specification
                         })
+            tr.compare__title
+                td(colspan=compare.length+1)|디스플레이
             tr
-                td|디스플레이
-            tr
+                td
+                    table.name__table
+                        tr
+                            td
+                                p|사이즈
+                        tr
+                            td
+                                p|해상도
+                        tr
+                            td
+                                p|PPI
+                        tr
+                            td
+                                p|타입
+                        tr
+                            td
+                                p|너비
+                        tr
+                            td
+                                p|높이
                 each item in compare
                     td
                         +displayBlock({
                             specification: item.specification
                         })
+            tr.compare__title
+                td(colspan=compare.length+1)|성능
             tr
-                td|성능
-            tr
+                td
+                    table.name__table
+                        tr
+                            td
+                                p|AP
+                        tr
+                            td
+                                p|CPU 
+                        tr
+                            td
+                                p|코어 수
+                        tr
+                            td
+                                p|CPU 쿨럭
+                        tr
+                            td
+                                p|GPU
+                        tr
+                            td
+                                p|RAM
+                        tr
+                            td
+                                p|메모리
                 each item in compare
                     td
                         +specBlock({
                             specification: item.specification
                         })
+            tr.compare__title
+                td(colspan=compare.length+1)|카메라
             tr
-                td|카메라
-            tr
+                td
+                    table.name__table
+                        tr
+                            td
+                                p|센서
+                        tr
+                            td
+                                p|조리개
+                        tr
+                            td
+                                p|후레시
+                        tr
+                            td
+                                p|비디오 프레임
                 each item in compare
                     td
                         +cameraBlock({
                             specification: item.specification
                         })
+            tr.compare__title
+                td(colspan=compare.length+1)|배터리
             tr
-                td|배터리
-            tr
+                td
+                    table.name__table
+                        tr
+                            td
+                                p|mAH
+                        tr
+                            td
+                                p|타입
+                        tr
+                            td
+                                p|무선충전 지원
                 each item in compare
                     td
                         +batteryBlock({

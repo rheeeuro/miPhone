@@ -1,0 +1,29 @@
+.companyDetail__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .companyDetail__info {
+    width: 100%;
+    float: left;
+    margin-bottom: 40px;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(6, minmax(100px, 1fr));
+    grid-gap: 30px;
+    img {
+      margin-left: 80px;
+    }
+    a {
+      margin: auto;
+      font-size: 50px;
+    }
+  }
+  .companyDetail__phones {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+    padding-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(100px, 1fr));
+    grid-gap: 30px;
+  }
+}
