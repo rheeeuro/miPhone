@@ -7,10 +7,20 @@ mixin companyBlock(company = {})
         .companyBlock__name
             a(href=routes.companyDetail(company.id))
                 p=company.name
+                    span.companyBlock__more
+                        button|+
         .companyBlock__phones
-            each item in company.phones
-                +phoneBlock({
-                    id:item.id,
-                    name:item.name,
-                    imageUrl:item.imageUrl
-                })
+            if(company.phones.length > 8)
+                each item in company.phones.slice(0, 8)
+                    +phoneBlock({
+                        id:item.id,
+                        name:item.name,
+                        imageUrl:item.imageUrl
+                    })
+            else
+                each item in company.phones
+                    +phoneBlock({
+                        id:item.id,
+                        name:item.name,
+                        imageUrl:item.imageUrl
+                    })
