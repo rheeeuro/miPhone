@@ -20,9 +20,14 @@
   .social-login--github {
     background-color: $black;
     color: white;
+    height: 45px;
   }
   .social-login--naver {
     background-color: #3eaf0e;
     color: white;
+    height: 45px;
+    .naver {
+      font-weight: 900;
+    }
   }
 }
