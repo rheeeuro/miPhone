@@ -3,6 +3,8 @@
   margin-bottom: 20px;
   img {
     margin-bottom: 10px;
+    max-height: 1000px;
+    overflow: hidden;
     max-width: 100%;
   }
   .phoneBlock__name {
