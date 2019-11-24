@@ -8,10 +8,10 @@ mixin appearanceBlock(phone = {})
                 td
                     p.appearance__WxHxD
                         span=phone.specification.appearance.WxHxD.w
-                        span=" X " 
+                        span=" × " 
                         span=phone.specification.appearance.WxHxD.h
-                        span=" X "
+                        span=" × "
                         span=phone.specification.appearance.WxHxD.d
             re
                 td
-                    p.appearance__weight=phone.specification.appearance.weight
+                    p.appearance__weight=`${phone.specification.appearance.weight} g`

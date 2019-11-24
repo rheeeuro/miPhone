@@ -18,7 +18,7 @@ mixin basicBlock(phone = {})
                             span=phone.releaseDate.getMonth()+1
             tr
                 td
-                    p.phone__releasePrice=phone.releasePrice
+                    p.phone__releasePrice=`￦ ${phone.releasePrice}`
             tr
                 td
                     p.phone__releaseOS=phone.releaseOS

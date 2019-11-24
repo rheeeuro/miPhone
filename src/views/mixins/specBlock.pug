@@ -9,16 +9,16 @@ mixin specBlock(phone = {})
                     p.performance__CPU=phone.specification.performance.CPU 
             tr
                 td
-                    p.performance__core=phone.specification.performance.core
+                    p.performance__core=`${phone.specification.performance.core} 개`
             tr
                 td
-                    p.performance__CPUClock=phone.specification.performance.CPUClock
+                    p.performance__CPUClock=`${phone.specification.performance.CPUClock} MHz`
             tr
                 td
                     p.performance__GPU=phone.specification.performance.GPU
             tr
                 td
-                    p.performance__RAM=phone.specification.performance.RAM
+                    p.performance__RAM=`${phone.specification.performance.RAM} GB`
             tr
                 td
-                    p.performance__memory=phone.specification.performance.memory
+                    p.performance__memory=`${phone.specification.performance.memory} GB`

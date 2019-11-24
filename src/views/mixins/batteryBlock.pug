@@ -3,7 +3,7 @@ mixin batteryBlock(phone = {})
         table(border=1).phone__table
             tr
                 td
-                    p.battery__mAH=phone.specification.battery.mAH
+                    p.battery__mAH=`${phone.specification.battery.mAH} mAh`
             tr
                 td
                     p.battery__Btype=phone.specification.battery.Btype

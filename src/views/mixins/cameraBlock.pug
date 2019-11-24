@@ -12,4 +12,4 @@ mixin cameraBlock(phone = {})
                     p.camera__flash=phone.specification.camera.flash
             tr
                 td
-                    p.camera__videoFrame=phone.specification.camera.videoFrame
+                    p.camera__videoFrame=`${phone.specification.camera.videoFrame} FPS`
