@@ -30,7 +30,7 @@ const addComment = comment => {
   const commentText = document.createElement("p");
   commentText.innerHTML = comment;
 
-  if (userEmail === "admin@miphone.com") {
+  if (userEmail.value === "admin@miphone.com") {
     name.classList.add("admin");
   }
 
