@@ -155,13 +155,10 @@ export const getEditProfile = (req, res) =>
 
 export const postEditProfile = async (req, res) => {
   const {
-    body: { name, email }
+    body: { name }
   } = req;
   try {
-    await User.findByIdAndUpdate(req.user.id, {
-      name,
-      email
-    });
+    await User.findByIdAndUpdate(req.user.id, { name });
     req.flash("success", "프로필이 업데이트 되었습니다");
     res.redirect(routes.me);
   } catch (error) {
