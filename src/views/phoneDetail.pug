@@ -216,7 +216,7 @@ block content
                     li
                         .comment-content
                             a(href=routes.userDetail(comment.creator))
-                                if String(comment.creator) === "5dda9820b356314a547a9629"
+                                if String(comment.creator) === adminID
                                     span.admin=comment.creatorName
                                 else
                                     span=comment.creatorName

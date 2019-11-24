@@ -1,4 +1,7 @@
 import routes from "./routes";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export const formatDate = date => {
   const d = new Date(date);
@@ -26,5 +29,6 @@ export const localsMiddleware = (req, res, next) => {
   res.locals.routes = routes;
   res.locals.loggedUser = req.user || null;
   res.locals.formatDate = formatDate;
+  res.locals.adminID = process.env.adminID;
   next();
 };
