@@ -11,6 +11,7 @@
     align-items: center;
     justify-content: center;
     white-space: nowrap;
+    overflow: hidden;
     text-overflow: ellipsis;
     .name__table {
       width: 110px;
@@ -48,6 +49,7 @@
       width: 100%;
       border-bottom: 1px solid rgba(0, 0, 0, 0.05);
       text-overflow: ellipsis;
+      overflow: hidden;
     }
   }
 }
