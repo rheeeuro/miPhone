@@ -15,10 +15,11 @@ header.header
                     li
                         a(href=routes.login) 로그인
                 else
-                    li
-                        a(href=`/companies${routes.addCompany}`) 제조사 등록
-                    li
-                        a(href=`/phones${routes.upload}`) 정보 업로드
+                    if(loggedUser.email == 'admin@miphone.com')
+                        li
+                            a(href=`/companies${routes.addCompany}`) 제조사 등록
+                        li
+                            a(href=`/phones${routes.upload}`) 정보 업로드
                     li
                         a(href=routes.me) 프로필
                     li
