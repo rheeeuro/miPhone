@@ -46,7 +46,7 @@
     table,
     tr,
     td {
-      width: 100%;
+      max-width: 350px;
       border-bottom: 1px solid rgba(0, 0, 0, 0.05);
       p {
         text-overflow: ellipsis;
