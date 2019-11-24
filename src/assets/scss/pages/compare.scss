@@ -10,6 +10,8 @@
     padding-bottom: 10px;
     align-items: center;
     justify-content: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     .name__table {
       width: 110px;
     }
