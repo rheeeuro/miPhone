@@ -1,0 +1,15 @@
+.search__header {
+  margin-bottom: 30px;
+  font-size: 20px;
+  font-weight: 300;
+  .searchingBy {
+    font-weight: 800;
+  }
+}
+.search__phones {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(100px, 1fr));
+  grid-gap: 30px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 20px;
+}

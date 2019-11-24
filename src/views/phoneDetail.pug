@@ -203,7 +203,8 @@ block content
                         button.detail__button 비교 리스트에 추가
         .phone__comments
             if loggedUser
-                input(type="hidden", id="username", value=loggedUser.name)    
+                input(type="hidden", id="username", value=loggedUser.name)
+                input(type="hidden", id="userEmail", value=loggedUser.email)  
             span.phone__comment-number#jsCommentNumber=phone.comments.length
             | 개의 댓글
             br

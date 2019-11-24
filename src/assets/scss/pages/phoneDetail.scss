@@ -92,6 +92,9 @@
         }
         p {
           margin-top: 10px;
+          .admin {
+            color: firebrick;
+          }
         }
         a {
           &:not(:first-child) {

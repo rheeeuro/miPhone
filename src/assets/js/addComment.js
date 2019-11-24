@@ -4,6 +4,7 @@ const addCommentForm = document.getElementById("jsAddComment");
 const commentList = document.getElementById("jsCommentList");
 const commentNumber = document.getElementById("jsCommentNumber");
 const userName = document.getElementById("username");
+const userEmail = document.getElementById("userEmail");
 
 const formatDate = date => {
   const d = new Date(date);
@@ -28,6 +29,10 @@ const addComment = comment => {
 
   const commentText = document.createElement("p");
   commentText.innerHTML = comment;
+  if (userEmail === "admin@miphone.com") {
+    commentText.classList.add("admin");
+  }
+
   commentContent.append(name);
   commentContent.append(date);
   commentContent.append(commentText);
