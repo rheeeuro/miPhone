@@ -3,7 +3,11 @@ extends layouts/main
 block content
     .user-profile
         .user-profile__header
+            a(href=routes.phoneDetail(myphone.id))
+                img(src=myphone.imageUrl)
             h4.profile__username=user.name
+            a(href=routes.phoneDetail(myphone.id))
+                p=`${myphone.name} 사용자`
         if user.id === loggedUser.id
             .user-profile__btns
                 a(href=`/users${routes.editProfile}`)

@@ -119,8 +119,13 @@ export const logout = (req, res) => {
 
 // Me
 
-export const getMe = (req, res) => {
-  res.render("userDetail", { pageTitle: "내 정보", user: req.user });
+export const getMe = async (req, res) => {
+  const me = await User.findById(req.user).populate("myphone");
+  res.render("userDetail", {
+    pageTitle: "내 정보",
+    user: me,
+    myphone: me.myphone
+  });
 };
 
 // User Detail
@@ -130,9 +135,13 @@ export const userDetail = async (req, res) => {
     params: { id }
   } = req;
   try {
-    const user = await User.findById(id).populate("phones");
+    const user = await User.findById(id).populate("myphone");
     console.log(user);
-    res.render("userDetail", { pageTitle: `${user.name} 정보`, user });
+    res.render("userDetail", {
+      pageTitle: `${user.name} 정보`,
+      user,
+      myphone: user.myphone
+    });
   } catch (error) {
     req.flash("error", "사용자를 찾을 수 없습니다");
     res.redirect(routes.home);

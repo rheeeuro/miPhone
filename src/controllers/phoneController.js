@@ -328,10 +328,11 @@ export const addMy = async (req, res) => {
     const my = await User.findById(user.id);
     const phone = await Phone.findById(id);
     my.myphone = phone.id;
+    console.log(my.myphone);
     my.save();
   } catch (error) {
     res.status(400);
   } finally {
-    res.render("userDetail", { pageTitle: "내 정보", user: req.user });
+    res.redirect(routes.me);
   }
 };
