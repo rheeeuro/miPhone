@@ -29,8 +29,9 @@ const addComment = comment => {
 
   const commentText = document.createElement("p");
   commentText.innerHTML = comment;
+
   if (userEmail === "admin@miphone.com") {
-    commentText.classList.add("admin");
+    name.classList.add("admin");
   }
 
   commentContent.append(name);
