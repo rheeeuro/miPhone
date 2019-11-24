@@ -192,9 +192,10 @@ block content
                                 span|지원 안함
         if(loggedUser)
             .Detail__buttons
-                .Detail_button
-                    a(href=routes.editPhone(phone.id))
-                        button.detail__button 정보 수정
+                if loggedUser.email === "admin@miphone.com"
+                    .Detail_button
+                        a(href=routes.editPhone(phone.id))
+                            button.detail__button 정보 수정
                 .Detail_button
                     a(href=routes.addMy(phone.id))
                         button.detail__button 나의 휴대폰 등록
