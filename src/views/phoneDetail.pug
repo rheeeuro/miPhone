@@ -215,7 +215,10 @@ block content
                     li
                         .comment-content
                             a(href=routes.userDetail(comment.creator))
-                                span=comment.creatorName
+                                if String(comment.creator) === "5dda9820b356314a547a9629"
+                                    span.admin=comment.creatorName
+                                else
+                                    span=comment.creatorName
                             span=formatDate(comment.createdAt)
                             if loggedUser && String(comment.creator) === loggedUser.id
                                 a(href=routes.deleteComment(phone.id, comment.id)) 댓글 삭제

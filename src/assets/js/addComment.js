@@ -29,9 +29,11 @@ const addComment = comment => {
 
   const commentText = document.createElement("p");
   commentText.innerHTML = comment;
+  console.log(userEmail.value);
 
   if (userEmail.value === "admin@miphone.com") {
     name.classList.add("admin");
+    name.style.color = "crimson";
   }
 
   commentContent.append(name);
