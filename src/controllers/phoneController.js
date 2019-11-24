@@ -28,6 +28,7 @@ export const search = async (req, res) => {
     phones = await Phone.find({
       name: { $regex: searchingBy, $options: "i" }
     });
+    console.log(phones);
   } catch (error) {
     console.log(error);
   }
