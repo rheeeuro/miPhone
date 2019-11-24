@@ -48,8 +48,10 @@
     td {
       width: 100%;
       border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-      text-overflow: ellipsis;
-      overflow: hidden;
+      p {
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
     }
   }
 }
