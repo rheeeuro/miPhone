@@ -3,7 +3,7 @@ mixin displayBlock(phone = {})
         table(border=1).phone__table
             tr
                 td
-                    p.display__size=phone.specification.display.size
+                    p.display__size=`${phone.specification.display.size} 인치`
             tr
                 td
                     p.display__resolution
