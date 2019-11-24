@@ -2,6 +2,10 @@
 
 Comparing specification of smartphones using database (DB class team project)
 
+# Url
+
+https://miphone.herokuapp.com/
+
 ## Pages:
 
 - [x] Home
