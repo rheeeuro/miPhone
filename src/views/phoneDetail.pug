@@ -216,7 +216,7 @@ block content
                     li
                         .comment-content
                             a(href=routes.userDetail(comment.creator))
-                                if comment.creator === admin.id
+                                if comment.creator === admin
                                     span.admin=comment.creatorName
                                 else
                                     span=comment.creatorName

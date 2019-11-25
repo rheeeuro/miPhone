@@ -1,6 +1,5 @@
 import dotenv from "dotenv";
 import routes from "./routes";
-import User from "./models/User";
 
 dotenv.config();
 
@@ -25,16 +24,11 @@ export const onlyPrivate = (req, res, next) => {
   }
 };
 
-export const adminID = async () => {
-  const admin = await User.findById(process.env.adminID);
-  return admin;
-};
-
 export const localsMiddleware = (req, res, next) => {
   res.locals.siteName = "miPhone";
   res.locals.routes = routes;
   res.locals.loggedUser = req.user || null;
   res.locals.formatDate = formatDate;
-  res.locals.admin = adminID();
+  res.locals.admin = process.env.ADMIN_ID;
   next();
 };
