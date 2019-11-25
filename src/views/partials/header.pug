@@ -15,7 +15,7 @@ header.header
                     li
                         a(href=routes.login) 로그인
                 else
-                    if(loggedUser.email == 'admin@miphone.com')
+                    if loggedUser.id.toString() === admin
                         li
                             a(href=`/companies${routes.addCompany}`) 제조사 등록
                         li
