@@ -2,33 +2,36 @@ extends layouts/main
 include mixins/phoneBlock
 
 block content
-    .specSearch__spec
-        form#specSearch__form(action=routes.specSearch method="get")
-            input#jsDisplaySize(type="range", name="displaySize", value=0, min=0, max=10, step=0.1)
-            p
-                |화면 최소
-                if displaySize
-                    span#jsDisplaySizeValue=` ${displaySize}`
-                else
-                    span
-                        output#jsDisplaySizeValue="0"
-                | 인치
-            input#jsPrice(type="range", name="price", value=0, min=0, max=2000000, step=100000)
-            p
-                |가격 최소 ￦ 
-                if price
-                    span
-                        output#jsPriceValue=price
-                else    
-                    span#jsPriceValue="0"
-            input(type="submit", value="상세 검색")
-    .specSearch__phones
-        if phones.length === 0
-            h5 검색결과 없음
-        each item in phones
-            +phoneBlock({
-                name:item.name,
-                imageUrl:item.imageUrl,
-                company:item.company,
-                id:item.id
-            }) 
+    .specSearch__container
+        .specSearch__spec
+            form#specSearch__form(action=routes.specSearch method="get")
+                .specSearch__rangeContainer
+                    .specSearch__display
+                        input#jsDisplaySize(type="range", name="displaySize", value=0, min=0, max=10, step=0.1)
+                        p
+                            |화면 최소
+                            if displaySize
+                                span#jsDisplaySizeValue=` ${displaySize}`
+                            else
+                                span#jsDisplaySizeValue="0"
+                            |  인치
+                    .specSearch__price
+                        input#jsPrice(type="range", name="price", value=0, min=0, max=2000000, step=100000)
+                        p
+                            |가격 최소 ￦   
+                            if price
+                                span#jsPriceValue=price
+                            else    
+                                span#jsPriceValue="0"
+                            |   원
+                input.specSearch__submit(type="submit", value="상세 검색")
+        .specSearch__phones
+            if phones.length === 0
+                h5 검색결과 없음
+            each item in phones
+                +phoneBlock({
+                    name:item.name,
+                    imageUrl:item.imageUrl,
+                    company:item.company,
+                    id:item.id
+                }) 

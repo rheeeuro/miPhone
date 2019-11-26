@@ -1,0 +1,53 @@
+.specSearch__container {
+  width: 100%;
+  .specSearch__spec {
+    width: 100%;
+    form {
+      margin-bottom: 30px;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .specSearch__rangeContainer {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(500px, 1fr));
+        grid-gap: 20px;
+        .specSearch__display,
+        .specSearch__price {
+          flex-direction: row;
+          align-items: center;
+          text-align: center;
+          input {
+            width: 400px;
+            margin-bottom: 20px;
+          }
+          flex-direction: row;
+          margin-bottom: 20px;
+          p {
+            #jsDisplaySizeValue,
+            #jsPriceValue {
+              font-size: 30px;
+              margin-left: 10px;
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+      .specSearch__submit {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100px;
+        margin-top: 30px;
+      }
+    }
+  }
+  .specSearch__phones {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+    padding-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(100px, 1fr));
+    grid-gap: 30px;
+  }
+}
