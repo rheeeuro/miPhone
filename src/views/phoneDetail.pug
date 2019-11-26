@@ -42,10 +42,10 @@ block content
                 td.name_tag
                     p|출고가 (원)
                 td.info
-                    p.phone__releasePrice=phone.releasePrice
+                    p.phone__releasePrice=`￦ ${phone.releasePrice}`
             tr
                 td.name_tag
-                    p|출시OS
+                    p|출시 OS
                 td.info
                     p.phone__releaseOS=phone.releaseOS
             tr.spec__part
@@ -53,12 +53,12 @@ block content
                     p|외형
             tr
                 td.name_tag
-                    p|재질
+                    p|주요 재질
                 td.info
                     p.appearance__material=phone.specification.appearance.material   
             tr
                 td.name_tag
-                    p|WxHxD
+                    p|크기 (WxHxD)
                 td.info
                     p.appearance__WxHxD
                             span=phone.specification.appearance.WxHxD.w
@@ -66,47 +66,49 @@ block content
                             span=phone.specification.appearance.WxHxD.h
                             span=" X "
                             span=phone.specification.appearance.WxHxD.d
+                            span=" (mm)"
             tr
                 td.name_tag
-                    p|무게
+                    p|무게 (g)
                 td.info
-                    p.appearance__weight=phone.specification.appearance.weight
+                    p.appearance__weight=`${phone.specification.appearance.weight} g`
             tr.spec__part
                 td(colspan=2).phoneDetail__title
                     p|디스플레이
             tr
                 td.name_tag
-                    p|사이즈    
+                    p|액정 크기
                 td.info
-                    p.display__size=phone.specification.display.size                
+                    p.display__size=`${phone.specification.display.size} 인치`                
             tr
                 td.name_tag
-                    p|해상도
+                    p|화면 해상도
                 td.info
                     p.display__resolution
                             span=phone.specification.display.resolution.w
                             span=" X "
                             span=phone.specification.display.resolution.h
+                            span=" 픽셀"
             tr
                 td.name_tag
-                    p|PPI
+                    p|Pixel/Inch
                 td.info
-                    p.display__ppi=phone.specification.display.ppi
+                    p.display__ppi=`${phone.specification.display.ppi} ppi`
             tr
                 td.name_tag
-                    p|타입
+                    p|화면 타입
                 td.info
                     p.display__Dtype=phone.specification.display.Dtype
             tr
                 td.name_tag
-                    p|너비
+                    p|화면 폭
                 td.info
-                    p.display__Dwidth=phone.specification.display.Dwidth
+                    p.display__Dwidth=`${phone.specification.display.Dwidth} mm`
             tr
                 td.name_tag
-                    p|높이
+                    p|화면 높이
                 td.info
-                    p.display__Dheight=phone.specification.display.Dheight
+                    p.display__Dheight=`${phone.specification.display.Dheight} mm`
             tr.spec__part  
                 td(colspan=2).phoneDetail__title
                     p|성능
@@ -122,14 +124,14 @@ block content
                     p.performance__CPU=phone.specification.performance.CPU
             tr
                 td.name_tag
-                    p|코어 수
+                    p|CPU 코어
                 td.info
-                    p.performance__core=phone.specification.performance.core
+                    p.performance__core=`${phone.specification.performance.core} 개`
             tr
                 td.name_tag
-                    p|CPU 쿨럭
+                    p|CPU 클럭
                 td.info
-                    p.performance__CPUClock=phone.specification.performance.CPUClock
+                    p.performance__CPUClock=`${phone.specification.performance.CPUClock} MHz`
             tr
                 td.name_tag
                     p|GPU
@@ -137,25 +139,25 @@ block content
                     p.performance__GPU=phone.specification.performance.GPU
             tr
                 td.name_tag
-                    p|RAM
+                    p|메모리 (RAM)
                 td.info
-                    p.performance__RAM=phone.specification.performance.RAM
+                    p.performance__RAM=`${phone.specification.performance.RAM} GB`
             tr
                 td.name_tag
-                    p|메모리
+                    p|내장 메모리
                 td.info
-                    p.performance__memory=phone.specification.performance.memory
+                    p.performance__memory=`${phone.specification.performance.memory} GB`
             tr.spec__part  
                 td(colspan=2).phoneDetail__title
                     p|카메라
             tr
                 td.name_tag
-                    p|센서       
+                    p|카메라 센서       
                 td.info
                     p.camera__sensor=phone.specification.camera.sensor               
             tr
                 td.name_tag
-                    p|조리개
+                    p|카메라 조리개
                 td.info
                     p.camera__aperture=phone.specification.camera.aperture
             tr
@@ -165,20 +167,20 @@ block content
                     p.camera__flash=phone.specification.camera.flash
             tr
                 td.name_tag
-                    p|비디오 프레임
+                    p|녹화 프레임
                 td.info
-                    p.camera__phoneFrame=phone.specification.camera.videoFrame
+                    p.camera__phoneFrame=`${phone.specification.camera.videoFrame} FPS`
             tr.spec__part  
                 td(colspan=2).phoneDetail__title
                     p|배터리
             tr
                 td.name_tag
-                    p|mAH 
+                    p|배터리 (mAH)
                 td.info
-                    p.battery__mAH=phone.specification.battery.mAH             
+                    p.battery__mAH=`${phone.specification.battery.mAH} mAH`        
             tr
                 td.name_tag
-                    p|타입
+                    p|배터리 타입
                 td.info
                     p.battery__Btype=phone.specification.battery.Btype
             tr

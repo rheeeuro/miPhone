@@ -1,6 +1,7 @@
 extends layouts/main
 
 block content
+    .uploadMenu__container
         if loggedUser.id.toString() === admin
             .uploadMenu__btns
                 a(href=`/companies${routes.addCompany}`)
