@@ -4,6 +4,7 @@ const JOIN = "/join";
 const LOGIN = "/login";
 const LOGOUT = "/logout";
 const SEARCH = "/search";
+const SPEC_SEARCH = "/spec-search";
 
 // Users
 
@@ -53,6 +54,7 @@ const routes = {
   login: LOGIN,
   logout: LOGOUT,
   search: SEARCH,
+  specSearch: SPEC_SEARCH,
   users: USERS,
   userDetail: id => {
     if (id) {

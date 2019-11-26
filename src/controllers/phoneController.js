@@ -35,6 +35,34 @@ export const search = async (req, res) => {
   res.render("search", { pageTitle: "검색", searchingBy, phones });
 };
 
+// Spec Search
+
+export const specSearch = async (req, res) => {
+  const {
+    query: { displaySize, price }
+  } = req;
+  let phones = [];
+  try {
+    phones = await Phone.find({});
+    if (displaySize !== undefined) {
+      phones = phones.filter(
+        phone => phone.specification.display.size >= displaySize
+      );
+    }
+    if (price !== undefined) {
+      phones = phones.filter(phone => phone.releasePrice >= price);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+  res.render("specSearch", {
+    pageTitle: "상세 검색",
+    phones,
+    displaySize,
+    price
+  });
+};
+
 // Upload
 
 export const getUpload = (req, res) =>
