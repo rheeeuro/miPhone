@@ -5,6 +5,7 @@ const LOGIN = "/login";
 const LOGOUT = "/logout";
 const SEARCH = "/search";
 const SPEC_SEARCH = "/spec-search";
+const UPLOAD_MENU = "/upload-menu";
 
 // Users
 
@@ -55,6 +56,7 @@ const routes = {
   logout: LOGOUT,
   search: SEARCH,
   specSearch: SPEC_SEARCH,
+  uploadMenu: UPLOAD_MENU,
   users: USERS,
   userDetail: id => {
     if (id) {

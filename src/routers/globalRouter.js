@@ -1,7 +1,12 @@
 import express from "express";
 import passport from "passport";
 import routes from "../routes";
-import { home, search, specSearch } from "../controllers/phoneController";
+import {
+  home,
+  search,
+  specSearch,
+  uploadMenu
+} from "../controllers/phoneController";
 import {
   getJoin,
   getLogin,
@@ -29,6 +34,8 @@ globalRouter.get(routes.home, home);
 globalRouter.get(routes.search, search);
 
 globalRouter.get(routes.specSearch, specSearch);
+
+globalRouter.get(routes.uploadMenu, uploadMenu);
 
 globalRouter.get(routes.logout, onlyPrivate, logout);
 

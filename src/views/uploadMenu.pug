@@ -1,0 +1,9 @@
+extends layouts/main
+
+block content
+        if loggedUser.id.toString() === admin
+            .uploadMenu__btns
+                a(href=`/companies${routes.addCompany}`)
+                    button 제조사 등록
+                a(href=routes.uplaod)
+                    button 휴대폰 정보 업로드

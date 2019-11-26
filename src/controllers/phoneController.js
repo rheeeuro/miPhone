@@ -65,6 +65,9 @@ export const specSearch = async (req, res) => {
 
 // Upload
 
+export const uploadMenu = (req, res) =>
+  res.render("uploadMenu", { pageTitle: "업로드 선택" });
+
 export const getUpload = (req, res) =>
   res.render("upload", { pageTitle: "정보 업로드" });
 

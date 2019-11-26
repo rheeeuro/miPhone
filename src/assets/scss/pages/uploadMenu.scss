@@ -1,0 +1,15 @@
+.uploadMenu__btns {
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  a:not(:last-child) {
+    margin-bottom: 20px;
+  }
+  a {
+    width: 100%;
+    button {
+      width: 100%;
+    }
+  }
+}
