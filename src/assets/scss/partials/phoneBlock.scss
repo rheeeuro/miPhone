@@ -1,11 +1,15 @@
 .phoneBlock {
   width: 150px;
   margin-bottom: 20px;
-  img {
-    margin-bottom: 10px;
-    max-height: 150px;
-    overflow: hidden;
-    max-width: 100%;
+  .img__container {
+    width: 150px;
+    height: 150px;
+    img {
+      margin-bottom: 10px;
+      max-height: 150px;
+      overflow: hidden;
+      max-width: 100%;
+    }
   }
   .phoneBlock__name {
     font-size: 14px;

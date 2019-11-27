@@ -1,5 +1,6 @@
 mixin phoneBlock(phone = {})
     .phoneBlock
         a(href=routes.phoneDetail(phone.id))
-            img.phoneBlock__img(src=phone.imageUrl)
+            .img__container
+                img.phoneBlock__img(src=phone.imageUrl)
             h4.phoneBlock__name=phone.name
