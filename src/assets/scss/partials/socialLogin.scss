@@ -18,11 +18,25 @@
     }
   }
   .social-login--github {
+    a:link,
+    a:visited,
+    a:active,
+    a:hover {
+      text-decoration: none;
+      color: white;
+    }
     background-color: $black;
     color: white;
     height: 45px;
   }
   .social-login--naver {
+    a:link,
+    a:visited,
+    a:active,
+    a:hover {
+      text-decoration: none;
+      color: white;
+    }
     background-color: #3eaf0e;
     color: white;
     height: 45px;
