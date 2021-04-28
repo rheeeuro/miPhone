@@ -10,6 +10,10 @@
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
     .header__column {
+      a:link {text-decoration: none; color: white;}
+      a:visited {text-decoration: none; color: white;}
+      a:active {text-decoration: none; color: white;}
+      a:hover {text-decoration: none; color: white;}
       i {
         color: white;
         font-size: 30px;
